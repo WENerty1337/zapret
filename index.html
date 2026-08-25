@@ -27,6 +27,10 @@
             margin-bottom: 20px;
             width: 100%;
             max-width: 500px;
+            display: none;
+        }
+        .box.active {
+            display: block;
         }
         .box-green {
             border: 1px solid #22c55e;
@@ -94,11 +98,30 @@
             font-weight: bold;
             letter-spacing: 3px;
         }
+        .switch-btn {
+            background: #333;
+            color: #aaa;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 11px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            margin-bottom: 20px;
+        }
+        .switch-btn:hover {
+            background: #555;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
+    <button class="switch-btn" onclick="switchBox()">ПЕРЕКЛЮЧИТЬ</button>
+
     <!-- Блок FATALITY -->
-    <div class="box">
+    <div class="box active" id="fatalityBox">
         <h1>FATALITY</h1>
         <p class="subtitle">SOFT CRACK</p>
         
@@ -111,9 +134,9 @@
     </div>
 
     <!-- Блок ZAPRET2 -->
-    <div class="box box-green">
+    <div class="box box-green" id="zapretBox">
         <h1 class="green-text">ZAPRET2</h1>
-        <p class="subtitle">ОБХОД БЛОКИРОВОК DISCORD / YOUTUBE</p>
+        <p class="subtitle">ОБХОД БЛОКИРОВОК DISCORD / YOUTUBE / TELEGRAM</p>
         
         <a href="https://raw.githubusercontent.com/WENerty1337/zapret/main/Zapret2Setup_20_0_4_0.rar" class="btn btn-green">⬇️ Скачать ZAPRET2</a>
         
@@ -122,5 +145,20 @@
             <div class="pass">zapret2</div>
         </div>
     </div>
+
+    <script>
+        function switchBox() {
+            var fatality = document.getElementById('fatalityBox');
+            var zapret = document.getElementById('zapretBox');
+            
+            if (fatality.classList.contains('active')) {
+                fatality.classList.remove('active');
+                zapret.classList.add('active');
+            } else {
+                zapret.classList.remove('active');
+                fatality.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
